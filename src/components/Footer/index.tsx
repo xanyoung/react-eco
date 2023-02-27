@@ -12,7 +12,7 @@ export const Footer = () => {
         <img src={Mail} alt="Mail" className={styles.marks}/>info@ecorus.ru
       </div>
       <div className={styles.second}>
-        <img src={Call} alt="Phone"className={styles.marks}/>+7 (800) 880-88-88
+        <img src={Call} alt="Phone" className={styles.marks}/>+7 (800) 880-88-88
       </div>
     </footer>
   )
