@@ -1,0 +1,52 @@
+@mixin selectors
+    display: flex
+    flex-direction: column
+    margin-top: 13px
+    gap: 14px
+
+@mixin settings
+    font-family: Inter
+    font-size: 16px
+    font-weight: 500
+    line-height: 24px
+
+.panel
+    width: 282px
+    margin-left: 200px
+    border-radius: 16px
+    padding: 24px
+    border: 1px solid rgba(62, 80, 114, 0.16)
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    gap: 24px
+
+p
+    @include settings
+
+.gender
+    @include selectors
+    margin-top: 17px
+
+.typeof
+    @include selectors
+
+.brand
+    @include selectors
+
+.reset
+    background: rgba(62, 80, 114, 0.08)
+    height: 48px
+    width: 282px
+    margin-left: 200px
+    margin-top: 23px
+    border-radius: 8px
+    padding: 12px 24px 12px 24px
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    border: none
+    color: rgba(0, 11, 38, 0.8)
+
+    @include settings

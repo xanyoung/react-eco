@@ -1,0 +1,35 @@
+@mixin flex
+    display: flex
+    flex-direction: row
+    align-items: center
+
+.container
+    @include flex
+
+    label
+        @include flex
+
+    .caption
+        font-family: 'Inter'
+        font-style: normal
+        font-weight: 400
+        font-size: 14px
+        line-height: 20px
+
+.checkbox
+    height: 16px
+    width: 16px
+    background: white
+    border: 1.5px solid rgba(0, 11, 38, 0.4)
+    border-radius: 4px
+    margin-right: 9px
+
+    &Active
+        padding: 4px
+        background: #07C88E
+        border: none
+
+input[type="checkbox"]
+    height: 1px
+    width: 1px
+    position: absolute

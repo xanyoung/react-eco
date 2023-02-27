@@ -1,0 +1,54 @@
+@mixin flex-and-ai
+    display: flex
+    align-items: center
+
+@mixin settings-left
+    line-height: 18px
+    letter-spacing: -0.15px
+    opacity: 0.64
+
+@mixin settings-right
+    line-height: 20px
+    opacity: 0.8
+
+a
+    font-family: Inter, serif
+    font-size: 14px
+    color: rgba(0, 11, 38)
+
+.active
+    font-weight: 600
+
+.header
+    height: 80px
+    box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.12)
+    @include flex-and-ai
+
+.logo
+    margin-left: 10.4vw
+
+.navigation
+    display: flex
+    margin-left: 48px
+    gap: 24px
+    @include settings-left
+
+.info
+    margin-left: 385px
+    display: flex
+    gap: 24px
+    @include settings-right
+
+    &Position
+        gap: 4px
+        @include flex-and-ai
+
+    &Balance
+        gap: 8px
+        font-weight: 600
+        margin-left: 24px
+        @include flex-and-ai
+
+    &Profile
+        gap: 4px
+        @include flex-and-ai
