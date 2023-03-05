@@ -1,32 +1,39 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
 
-import Logo from '../../assets/Frame 1982.svg'
+import Logo from '../../assets/Logo.svg'
 import Marker from '../../assets/Pin.svg'
-import CurrencyLogo from '../../assets/Frame 3.svg'
-import Photo from '../../assets/Ellipse 153.svg'
+import CurrencyLogo from '../../assets/CurrencyBig.svg'
+import Photo from '../../assets/Photo.svg'
 // import GreenBar from '../../assets/Rectangle 446.svg'
 
 import styles from './HeaderBlock.module.sass'
 
-export const Header = () => {
+interface HeaderProps {
+  setVisible: (value: boolean) => void;
+}
+
+export const Header = ({setVisible}: HeaderProps) => {
+
   return (
     <header className={styles.header}>
-      <img src={ Logo } className={styles.logo} alt='Ecorus'/>
-      <nav className={styles.navigation}>
-        <Link to='/'>
-          Главная
-        </Link>
-        <Link to='/recycling-points'>
-          Пункты сбора
-        </Link>
-        <Link to='/market' className={styles.active}>
-          ЭкоМаркет
-        </Link>
-        <Link to='/about-service'>
-          О сервисе
-        </Link>
-      </nav>  
+      <div className={styles.rightnav}>
+        <img src={ Logo } className={styles.logo} alt='Ecorus'/>
+        <nav className={styles.navigation}>
+          <NavLink to='/'>
+            Главная
+          </NavLink>
+          <NavLink to='/recycling-points'>
+            Пункты сбора
+          </NavLink>
+          <NavLink to='/market' className={styles.active}>
+            ЭкоМаркет
+          </NavLink>
+          <NavLink to='/about-service'>
+            О сервисе
+          </NavLink>
+        </nav>  
+      </div>
       <div className={styles.info}>
         <Link to='/location' className={styles.infoPosition}>
           <img src={ Marker } alt="Marker"/>Казань
@@ -34,7 +41,7 @@ export const Header = () => {
         <Link to='/balance' className={styles.infoBalance}>
           <img src={ CurrencyLogo } alt="Currency logo"/>1000
         </Link>
-        <Link to='/profile' className={styles.infoProfile}>
+        <Link to='/market' onClick={() => setVisible(true)} className={styles.infoProfile}>
           <img src={ Photo } alt="Your avatar" />Алексей
         </Link>
       </div>  

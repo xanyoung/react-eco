@@ -2,21 +2,29 @@ import React from 'react'
 
 import styles from './cardTemplate.module.sass'
 
-import Coin from '../../../assets/Frame 3.svg'
+import Coin from '../../../assets/CurrencyBig.svg'
 
-export const CardTemplate = (props: {brand: string, name: string, category: string, price: number, imgUrl: string}) => {
+export interface cardProps {
+  brand: string;
+  name: string;
+  category: string;
+  price: number;
+  imgUrl: string
+}
+
+export const CardTemplate = ({brand, name, category, price, imgUrl}: cardProps) => {
   return (
     <div className={styles.containter}>
         <div className={styles.photo}>
-            <img src={props.imgUrl} alt="Item" className="" />
-            <div className={styles.brand}>{props.brand}</div>
+            <img src={imgUrl} alt="Item" className="" />
+            <div className={styles.brand}>{brand}</div>
         </div>
         <div className={styles.info}>
-            <p className={styles.big}>{props.name}</p>
-            <p className={styles.small}>{props.category}</p>
+            <p className={styles.big}>{name}</p>
+            <p className={styles.small}>{category}</p>
         </div>
         <div className={styles.price}>
-            <img src={Coin} alt='coin'></img>{props.price}
+            <img src={Coin} alt='coin'></img>{price}
         </div>
     </div>
   )

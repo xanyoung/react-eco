@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { Checkbox } from '../Checkbox/Checkbox'
-import styles from '../longFilter.module.sass'
+import styles from '../Sidebar.module.sass'
 
 export const TypeOfItem = () => {
   return (

@@ -2,15 +2,20 @@ import React from "react";
 
 import styles from "./Checkbox.module.sass"
 
-import checkbox from "../../../../assets/Vector 1 (Stroke).svg"
+import checkbox from "../../../../assets/Flag.svg"
 
-export const Checkbox = (props: {text: string, checked?: boolean}) => {
+interface Props {
+  text: string;
+  checked?: boolean
+}
+
+export const Checkbox = ({text, checked}: Props) => {
   const [isChecked, setIsChecked] = React.useState(false);
 
   React.useEffect(() => {
-    if(props.checked) 
+    if(checked) 
         setIsChecked(true);
-  }, [props.checked]) // idk, but IDE send me a warning about missing dependency like 'props.checked'
+  }, [checked])
 
   return (
     <div className={styles.container}>
@@ -26,7 +31,7 @@ export const Checkbox = (props: {text: string, checked?: boolean}) => {
           src={checkbox}
           alt='mark'
         />
-        <div className={styles.caption}>{props.text}</div>
+        <div className={styles.caption}>{text}</div>
       </label>
     </div>
   );

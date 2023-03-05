@@ -1,0 +1,99 @@
+$light-green: #07C88E
+$darkred: #353535
+$darkred-60: rgba($darkred, 0.6)
+$lightblue: #3e5072
+$lightblue-8: rgba($lightblue, 0.08)
+$deepnavy: #000b26
+$deepnavy-80: rgba($deepnavy, 0.8)
+$deepnavy-16: rgba($deepnavy, 0.16)
+
+.overlay
+    background-color: $darkred-60
+    position: fixed
+    display: flex
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    justify-content: center
+    align-items: center
+    z-index: 10
+
+.window
+    width: 452px
+    height: 532px
+    border-radius: 24px
+    padding: 48px
+    background-color: white
+
+    .container
+        display: flex
+        flex-direction: column
+        width: 352px
+        height: 436px
+        gap: 32px
+
+        .head
+            display: flex
+            justify-content: space-between
+
+            h1
+                font-size: 28px
+                font-weight: 600
+                line-height: 32px
+
+            .cross
+                border: none
+                background: none
+
+        .forms
+            margin-top: 16px
+            height: 144px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+
+            input
+                height: 60px
+                background: #fff
+                border: 1px solid $deepnavy-16
+                border-radius: 8px
+                font-family: Inter
+                font-size: 14px
+                padding: 20px 16px
+
+        .enters
+            height: 92px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+
+            .big
+                display: flex
+                justify-content: center
+                align-items: center
+                gap: 10px
+                height: 56px
+                background: $light-green
+                color: white
+                border-radius: 8px
+                font-size: 16px
+
+            .smalls
+                display: flex
+                justify-content: space-between
+            a
+                color: $light-green
+                font-size: 16px
+
+        .partners
+            background: $lightblue-8
+            color: $deepnavy-80
+            border-radius: 8px
+            display: flex
+            flex-direction: row
+            justify-content: center
+            align-items: center
+            border: none
+            height: 56px
+            font-size: 16px

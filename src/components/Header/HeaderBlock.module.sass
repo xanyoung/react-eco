@@ -2,17 +2,7 @@
     display: flex
     align-items: center
 
-@mixin settings-left
-    line-height: 18px
-    letter-spacing: -0.15px
-    opacity: 0.64
-
-@mixin settings-right
-    line-height: 20px
-    opacity: 0.8
-
 a
-    font-family: Inter, serif
     font-size: 14px
     color: rgba(0, 11, 38)
 
@@ -21,8 +11,12 @@ a
 
 .header
     height: 80px
+    justify-content: space-between
     box-shadow: 0px 0.5px 0px 0px rgba(0, 0, 0, 0.12)
     @include flex-and-ai
+
+.rightnav
+    display: flex
 
 .logo
     margin-left: 10.4vw
@@ -31,13 +25,16 @@ a
     display: flex
     margin-left: 48px
     gap: 24px
-    @include settings-left
+    line-height: 18px
+    letter-spacing: -0.15px
+    opacity: 0.64
 
 .info
-    margin-left: 385px
+    margin-right: 200px
     display: flex
     gap: 24px
-    @include settings-right
+    line-height: 20px
+    opacity: 0.8
 
     &Position
         gap: 4px

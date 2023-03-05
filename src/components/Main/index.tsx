@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { FilterButton } from './filterButton/filterButton'
-import { LongFilter } from './longFilter/longFilter'
+import { Sidebar } from './longFilter/Sidebar'
 import { ItemCards } from './cards/itemCards'
 
 import styles from './MainBlock.module.sass'
@@ -12,13 +12,13 @@ export const Main = () => {
       <div className={styles.headpart}>
         <p>ЭкоМаркет</p>
         <div className={styles.filters}>
-          <FilterButton text={"По популярности"}/>
-          <FilterButton text={"По цене"}/>
-          <FilterButton text={"По новизне"}/>
+          <FilterButton children="По популярности"/>
+          <FilterButton children="По цене"/>
+          <FilterButton children="По новизне"/>
         </div>
       </div>
       <div className={styles.mainpart}>
-        <LongFilter />
+        <Sidebar />
         <ItemCards />
       </div>
     </main>

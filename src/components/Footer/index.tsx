@@ -8,10 +8,10 @@ import Call from '../../assets/Call.svg'
 export const Footer = () => {
   return (
     <footer className={styles.container}>
-      <div className={styles.first}>
+      <div className={styles.containerFirst}>
         <img src={Mail} alt="Mail" className={styles.marks}/>info@ecorus.ru
       </div>
-      <div className={styles.second}>
+      <div className={styles.containerSecond}>
         <img src={Call} alt="Phone" className={styles.marks}/>+7 (800) 880-88-88
       </div>
     </footer>

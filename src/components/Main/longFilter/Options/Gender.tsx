@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from '../longFilter.module.sass'
+import styles from '../Sidebar.module.sass'
 import { Checkbox } from '../Checkbox/Checkbox'
 
 export const Gender = () => {

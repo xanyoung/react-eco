@@ -1,3 +1,6 @@
+$deepnavy: #000b26
+$deepnavy-40: rgba($deepnavy, 0.4)
+
 @mixin flex
     display: flex
     flex-direction: row
@@ -10,9 +13,7 @@
         @include flex
 
     .caption
-        font-family: 'Inter'
         font-style: normal
-        font-weight: 400
         font-size: 14px
         line-height: 20px
 
@@ -20,7 +21,7 @@
     height: 16px
     width: 16px
     background: white
-    border: 1.5px solid rgba(0, 11, 38, 0.4)
+    border: 1.5px solid $deepnavy-40
     border-radius: 4px
     margin-right: 9px
 
