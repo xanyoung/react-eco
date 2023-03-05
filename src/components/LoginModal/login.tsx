@@ -6,7 +6,6 @@ import { useModalClose } from '../hooks/useModalClose'
 
 import styles from './login.module.sass'
 
-import Cross from '../../assets/Union.svg'
 
 interface Props {
   visible: boolean;
@@ -15,10 +14,10 @@ interface Props {
 
 export const Login = ({visible, onClose}: Props) => {
   const overlayRef = React.useRef<HTMLDivElement>(null)
-  // const crossRef = React.useRef<HTMLDivElement>(null)
+  const crossRef = React.useRef<HTMLDivElement>(null)
 
   useModalClose(overlayRef, () => onClose())
-  // useModalClose(crossRef, () => onClose())
+  useModalClose(crossRef, () => onClose())
 
 
   return (
@@ -30,9 +29,7 @@ export const Login = ({visible, onClose}: Props) => {
         <div className={styles.container}>
           <div className={styles.head}>
             <h1>Вход</h1>
-              <button onClick={() => onClose()} className={styles.cross}>
-              <img src={ Cross } alt="cross" className="" />
-              </button>
+            <div className={styles.cross} ref={crossRef}/>
           </div>
           <div className={styles.forms}>
               <input type="tel" placeholder="Телефон"></input>
