@@ -1,0 +1,47 @@
+$deepnavy: rgb(0, 11, 38)
+$deepnavy-56: rgba($deepnavy, 0.56)
+$lightnavy: rgb(62, 80, 114)
+$lightnavy-8: rgba($lightnavy, 0.08)
+$blue: rgb(18, 34, 88)
+$blue-12: rgba($blue, 0.12)
+
+.card
+    position: relative
+    width: 588px
+    height: 300px
+    border-radius: 16px
+    border: 1px solid $blue-12
+    display: flex
+    flex-direction: row
+
+    .container
+        width: 274px
+        margin-top: 40px
+        margin-left: 40px
+
+        .bigText
+            color: $deepnavy
+            font-weight: 600
+            font-size: 32px
+            line-height: 40px
+
+        .smallText
+            font-size: 16px
+            color: $deepnavy-56
+            line-height: 24px
+            margin-top: 14px
+
+        .button
+            margin-top: 46px
+            height: 48px
+            width: 48px
+            border-radius: 8px
+            background: $lightnavy-8
+            display: flex
+            align-items: center
+            justify-content: center
+
+    .picture
+        position: absolute
+        right: 0
+        bottom: 0

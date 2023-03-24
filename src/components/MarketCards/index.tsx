@@ -6,7 +6,7 @@ import { ItemCards } from './cards/itemCards'
 
 import styles from './MainBlock.module.sass'
 
-export const Main = () => {  
+export const MarketCards = () => {  
   return (
     <main>
       <div className={styles.headpart}>
