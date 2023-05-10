@@ -2,17 +2,18 @@ import React from 'react'
 
 import styles from './FooterBlock.module.sass'
 
-import Mail from '../../assets/Mail.svg'
-import Call from '../../assets/Call.svg'
+import { Icon } from '../Icon'
 
 export const Footer = () => {
   return (
     <footer className={styles.container}>
       <div className={styles.containerFirst}>
-        <img src={Mail} alt="Mail" className={styles.marks}/>info@ecorus.ru
+        <Icon name='Mail' size={24} />
+        <span>info@ecorus.ru</span>
       </div>
       <div className={styles.containerSecond}>
-        <img src={Call} alt="Phone" className={styles.marks}/>+7 (800) 880-88-88
+        <Icon name='Call' size={24} />
+        <span>+7 (800) 880-88-88</span>
       </div>
     </footer>
   )

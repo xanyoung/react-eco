@@ -6,11 +6,11 @@ import { cardProps } from './cardTemplate'
 
 import styles from './itemCards.module.sass'
 
-import NikeAirMax21 from '../../../assets/items/NikeAirMax21.svg'
-import NikeAirMax90 from '../../../assets/items/NikeAirMax90.svg'
-import AdidasAlpha from '../../../assets/items/AdidasAlphabounce.svg'
-import HMHoodie from '../../../assets/items/H&MHoodie.svg'
-import NikeAir from '../../../assets/items/NikeAir.svg'
+import NikeAirMax21 from '../../../assets/products/NikeAirMax21.svg'
+import NikeAirMax90 from '../../../assets/products/NikeAirMax90.svg'
+import AdidasAlpha from '../../../assets/products/AdidasAlphabounce.svg'
+import HMHoodie from '../../../assets/products/H&MHoodie.svg'
+import NikeAir from '../../../assets/products/NikeAir.svg'
 
 
 export const ItemCards = () => {

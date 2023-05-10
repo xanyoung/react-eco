@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './cardTemplate.module.sass'
 
-import Coin from '../../../assets/CurrencyBig.svg'
+import Coin from '../../../assets/items/CurrencyBig.svg'
 
 export interface cardProps {
   brand: string;

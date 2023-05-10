@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./Checkbox.module.sass"
 
-import checkbox from "../../../../assets/Flag.svg"
+import checkbox from "../../../../assets/items/Flag.svg"
 
 interface Props {
   text: string;

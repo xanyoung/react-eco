@@ -1,23 +1,25 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { Portal } from '../Portal'
-import { useModalClose } from '../hooks/useModalClose'
+import { Portal } from '../../../Portal'
+import { useModalClose } from '../../../hooks/useModalClose'
+import { Icon } from '../../../Icon'
 
-import styles from './login.module.sass'
+import styles from '../Login.module.sass'
 
+// import Cross from '../../../assets/Cross.svg'
 
 interface Props {
   visible: boolean;
   onClose: () => void;
 }
 
-export const Login = ({visible, onClose}: Props) => {
+export const Partners = ({visible, onClose}: Props) => {
   const overlayRef = React.useRef<HTMLDivElement>(null)
-  const crossRef = React.useRef<HTMLDivElement>(null)
+  // const crossRef = React.useRef<HTMLDivElement>(null)
 
   useModalClose(overlayRef, () => onClose())
-  useModalClose(crossRef, () => onClose())
+  // useModalClose(crossRef, () => onClose())
 
 
   return (
@@ -29,7 +31,9 @@ export const Login = ({visible, onClose}: Props) => {
         <div className={styles.container}>
           <div className={styles.head}>
             <h1>Вход</h1>
-            <div className={styles.cross} ref={crossRef}/>
+              <button onClick={() => onClose()} className={styles.cross}>
+              <Icon name="Cross" size={18}/>
+              </button>
           </div>
           <div className={styles.forms}>
               <input type="tel" placeholder="Телефон"></input>
@@ -42,7 +46,6 @@ export const Login = ({visible, onClose}: Props) => {
               <Link to="">Регистрация</Link>
             </div>
           </div>
-          <Link to='' className={styles.partners}>Вход для партнёров</Link>
           </div>
       </div>
     </div>

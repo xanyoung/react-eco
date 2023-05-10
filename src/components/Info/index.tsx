@@ -8,11 +8,11 @@ import { SmallCard } from './SmallCard'
 import { BigCard } from './BigCard'
 import { Arrows } from './Arrows/Arrows';
 
-import Map from '../../assets/Map.svg'
-import Package from '../../assets/Package.svg'
-import RecycleSymb from '../../assets/Recycle Symb.svg'
-import RecycleItems from '../../assets/Recycle Items.svg'
-import Masks from '../../assets/Masks.svg'
+import Map from '../../assets/items/Map.svg'
+import Package from '../../assets/items/Package.svg'
+import RecycleSymb from '../../assets/items/Recycle Symb.svg'
+import RecycleItems from '../../assets/items/Recycle Items.svg'
+import Masks from '../../assets/items/Masks.svg'
 
 interface infoProps {
     bigText: string;

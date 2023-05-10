@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './getPromo.module.sass'
 
-import coin from '../../../assets/coin.svg'
+import coin from '../../../assets/items/coin.svg'
 
 export const GetPromo = () => {
   return (

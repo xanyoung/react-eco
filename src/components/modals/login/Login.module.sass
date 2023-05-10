@@ -1,4 +1,4 @@
-$light-green: #07C88E
+$lightgreen: #07C88E
 $darkred: #353535
 $darkred-60: rgba($darkred, 0.6)
 $lightblue: #3e5072
@@ -6,6 +6,7 @@ $lightblue-8: rgba($lightblue, 0.08)
 $deepnavy: #000b26
 $deepnavy-80: rgba($deepnavy, 0.8)
 $deepnavy-16: rgba($deepnavy, 0.16)
+$deepnavy-72: rgba($deepnavy, 0.72)
 
 .overlay
     background-color: $darkred-60
@@ -21,7 +22,6 @@ $deepnavy-16: rgba($deepnavy, 0.16)
 
 .window
     width: 452px
-    height: 532px
     border-radius: 24px
     padding: 48px
     background-color: white
@@ -30,7 +30,6 @@ $deepnavy-16: rgba($deepnavy, 0.16)
         display: flex
         flex-direction: column
         width: 352px
-        height: 436px
         gap: 32px
 
         .head
@@ -43,16 +42,27 @@ $deepnavy-16: rgba($deepnavy, 0.16)
                 line-height: 32px
 
             .cross
-                height: 18px
-                width: 18px
-                background-image: url('../../assets/Cross.svg')
+                border: none
+                background: none
+                cursor: pointer
 
         .forms
             margin-top: 16px
-            height: 144px
             display: flex
+            gap: 24px
             flex-direction: column
             justify-content: space-between
+
+            span
+                font-size: 14px
+                opacity: 0.64
+                width: 320px
+                height: 40px
+                line-height: 20px
+
+                p
+                    font-size: 14px
+                    color: $lightgreen
 
             input
                 height: 60px
@@ -75,7 +85,7 @@ $deepnavy-16: rgba($deepnavy, 0.16)
                 align-items: center
                 gap: 10px
                 height: 56px
-                background: $light-green
+                background: $lightgreen
                 color: white
                 border-radius: 8px
                 font-size: 16px
@@ -84,7 +94,7 @@ $deepnavy-16: rgba($deepnavy, 0.16)
                 display: flex
                 justify-content: space-between
             a
-                color: $light-green
+                color: $lightgreen
                 font-size: 16px
 
         .partners
@@ -98,3 +108,6 @@ $deepnavy-16: rgba($deepnavy, 0.16)
             border: none
             height: 56px
             font-size: 16px
+
+.Cross
+    color: $deepnavy-72
