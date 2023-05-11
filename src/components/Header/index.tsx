@@ -1,20 +1,22 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 
 import { Icon } from '../Icon'
 
 import Logo from '../../assets/items/Logo.svg'
-// import Marker from '../../assets/Pin.svg'
 import CurrencyLogo from '../../assets/items/CurrencyBig.svg'
 import Photo from '../../assets/items/Photo.svg'
 
 import styles from './HeaderBlock.module.sass'
+import { setCurrentModal, setIsVisible } from '../../redux/slices/slice'
 
 interface HeaderProps {
   setVisible: (value: boolean) => void;
 }
 
 export const Header = ({setVisible}: HeaderProps) => {
+  const dispatch = useDispatch()
 
   return (
     <header className={styles.header}>
@@ -43,7 +45,12 @@ export const Header = ({setVisible}: HeaderProps) => {
         <Link to='/balance' className={styles.infoBalance}>
           <img src={ CurrencyLogo } alt="Currency logo"/>1000
         </Link>
-        <Link to='/market' onClick={() => setVisible(true)} className={styles.infoProfile}>
+        <Link to='/' 
+        onClick={() => {
+          dispatch(setIsVisible(true))
+          dispatch(setCurrentModal("Auth"))
+        }}
+        className={styles.infoProfile}>
           <img src={ Photo } alt="Your avatar" />Алексей
         </Link>
       </div>  

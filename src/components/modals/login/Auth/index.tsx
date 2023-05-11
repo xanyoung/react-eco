@@ -1,57 +1,42 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-import { Portal } from '../../../Portal'
-import { useModalClose } from '../../../hooks/useModalClose'
+import { useDispatch } from 'react-redux'
+
 import { Icon } from '../../../Icon'
 
 import styles from '../Login.module.sass'
-
-// import Cross from '../../../assets/Cross.svg'
+import { setCurrentModal } from '../../../../redux/slices/slice'
 
 export interface Props {
-  visible: boolean;
   onClose: () => void;
 }
 
-export const Auth = ({visible, onClose}: Props) => {
-  const overlayRef = React.useRef<HTMLDivElement>(null)
-  // const crossRef = React.useRef<HTMLDivElement>(null)
-
-  useModalClose(overlayRef, () => onClose())
-  // useModalClose(crossRef, () => onClose())
-
+export const Auth = ({onClose}: Props) => {
+  const dispatch = useDispatch()
 
   return (
     <>
-    {visible && 
-    <Portal>
-    <div className={styles.overlay} ref={overlayRef}>
-      <div className={styles.window}>
-        <div className={styles.container}>
-          <div className={styles.head}>
-            <h1>Вход</h1>
-              <button onClick={() => onClose()} className={styles.cross}>
+      <div className={styles.container}>
+        <div className={styles.head}>
+          <h1>Вход</h1>
+            <button onClick={() => onClose()} className={styles.cross}>
               <Icon name="Cross" size={18}/>
-              </button>
+            </button>
+        </div>
+        <div className={styles.forms}>
+            <input type="tel" placeholder="Телефон"></input>
+            <input type="password" placeholder='Пароль'></input>
+        </div>
+        <div className={styles.enters}>
+          <div className={styles.big}>Войти</div>
+          <div className={styles.smalls}>
+            <div className={styles.buttons} onClick={() => dispatch(setCurrentModal("WithCode"))}>Войти с помощью смс</div>
+            <div className={styles.buttons} onClick={() => dispatch(setCurrentModal("Registration"))}>Регистрация</div>
           </div>
-          <div className={styles.forms}>
-              <input type="tel" placeholder="Телефон"></input>
-              <input type="password" placeholder='Пароль'></input>
-          </div>
-          <div className={styles.enters}>
-            <Link to="" className={styles.big}>Войти</Link>
-            <div className={styles.smalls}>
-              <Link to="">Войти с помощью смс</Link>
-              <Link to="">Регистрация</Link>
-            </div>
-          </div>
-          <Link to='' className={styles.partners}>Вход для партнёров</Link>
-          </div>
+        </div>
+        <div onClick={() => dispatch(setCurrentModal("Partners"))} 
+            className={styles.partners}>Вход для партнёров</div>
       </div>
-    </div>
-    </Portal>
-    }
     </>
   )
 }

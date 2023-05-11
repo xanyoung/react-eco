@@ -1,33 +1,20 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
-import { Portal } from '../../../Portal'
-import { useModalClose } from '../../../hooks/useModalClose'
 import { Icon } from '../../../Icon'
 
 import styles from '../Login.module.sass'
-
-// import Cross from '../../../assets/Cross.svg'
+import { useDispatch } from 'react-redux'
+import { setCurrentModal } from '../../../../redux/slices/slice'
 
 export interface Props {
-  visible: boolean;
   onClose: () => void;
 }
 
-export const WithCode = ({visible, onClose}: Props) => {
-  const overlayRef = React.useRef<HTMLDivElement>(null)
-  // const crossRef = React.useRef<HTMLDivElement>(null)
-
-  useModalClose(overlayRef, () => onClose())
-  // useModalClose(crossRef, () => onClose())
-
+export const WithCode = ({onClose}: Props) => {
+  const dispatch = useDispatch()
 
   return (
     <>
-    {visible && 
-    <Portal>
-    <div className={styles.overlay} ref={overlayRef}>
-      <div className={styles.window}>
         <div className={styles.container}>
           <div className={styles.head}>
             <h1>Вход или регистрация</h1>
@@ -39,17 +26,16 @@ export const WithCode = ({visible, onClose}: Props) => {
               <input type="tel" placeholder="Телефон"></input>
           </div>
           <div className={styles.enters}>
-            <Link to="" className={styles.big}>Получить код</Link>
+            <div onClick={() => dispatch(setCurrentModal("EnterCode"))} 
+                className={styles.big}>Получить код</div>
             <div className={styles.smalls}>
-              <Link to="">Я уже зарегистрировался(-ась)</Link>
+              <div onClick={() => dispatch(setCurrentModal("Auth"))} 
+              className={styles.buttons}>Я уже зарегистрировался(-ась)</div>
             </div>
           </div>
-          <Link to='' className={styles.partners}>Отправить</Link>
+          <div onClick={() => dispatch(setCurrentModal("Partners"))} 
+          className={styles.partners}>Вход для партнеров</div>
           </div>
-      </div>
-    </div>
-    </Portal>
-    }
     </>
   )
 }

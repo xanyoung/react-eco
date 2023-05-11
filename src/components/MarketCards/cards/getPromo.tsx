@@ -8,11 +8,11 @@ export const GetPromo = () => {
   return (
     <div className={styles.card}>
       <div className={styles.cardBalance}>
-        <p className={styles.uppertext}>На вашем балансе
-          <div className={styles.sum}>
+        <div className={styles.uppertext}>На вашем балансе
+          <span className={styles.sum}>
             <img src={coin} alt="coin"/>200
-          </div>
-        </p>
+          </span>
+        </div>
         <p className={styles.undertext}>Вы можете обменять их на скидку 200 руб.</p>
       </div>
       <button className={styles.promo}>Получить промокод</button>

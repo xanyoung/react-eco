@@ -11,6 +11,7 @@ import './App.sass';
 import { Route, Routes } from 'react-router-dom';
 
 export const App = () => {
+  // eslint-disable-next-line
   const [visible, setVisible] = React.useState(false)
 
   return (
