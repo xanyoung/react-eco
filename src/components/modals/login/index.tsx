@@ -6,7 +6,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { Portal } from '../../Portal'
 import { RootState } from '../../../redux/store'
 import { Auth } from './Auth'
-import { setIsVisible } from '../../../redux/slices/slice'
+import { setIsVisible } from '../../../redux/modals/slice'
 import { EnterCode } from './EnterCode'
 import { Partners } from './Partners'
 import { Registation } from './Registration'
@@ -14,8 +14,8 @@ import { WithCode } from './WithCode'
 
 
 export const Login = () => {
-  const modalEnabled = useSelector((state: RootState) => state.slice.isVisible)
-  const currentModel = useSelector((state: RootState) => state.slice.currentModal)
+  const modalEnabled = useSelector((state: RootState) => state.modals.isVisible)
+  const currentModel = useSelector((state: RootState) => state.modals.currentModal)
   const overlayRef = React.useRef<HTMLDivElement>(null)
 
   const dispatch = useDispatch()

@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { Icon } from '../Icon'
 
@@ -9,7 +9,8 @@ import CurrencyLogo from '../../assets/items/CurrencyBig.svg'
 import Photo from '../../assets/items/Photo.svg'
 
 import styles from './HeaderBlock.module.sass'
-import { setCurrentModal, setIsVisible } from '../../redux/slices/slice'
+import { setCurrentModal, setIsVisible } from '../../redux/modals/slice'
+import { RootState } from '../../redux/store'
 
 interface HeaderProps {
   setVisible: (value: boolean) => void;
@@ -17,6 +18,7 @@ interface HeaderProps {
 
 export const Header = ({setVisible}: HeaderProps) => {
   const dispatch = useDispatch()
+  const username = useSelector((state: RootState) => state.user.username)
 
   return (
     <header className={styles.header}>
@@ -51,7 +53,7 @@ export const Header = ({setVisible}: HeaderProps) => {
           dispatch(setCurrentModal("Auth"))
         }}
         className={styles.infoProfile}>
-          <img src={ Photo } alt="Your avatar" />Алексей
+          <img src={ Photo } alt="Your avatar" />{username ?? 'Войти'}
         </Link>
       </div>  
     </header>

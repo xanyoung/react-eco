@@ -4,7 +4,7 @@ import { Icon } from '../../../Icon'
 
 import styles from '../Login.module.sass'
 import { useDispatch } from 'react-redux'
-import { setCurrentModal } from '../../../../redux/slices/slice'
+import { setCurrentModal } from '../../../../redux/modals/slice'
 
 export interface Props {
   onClose: () => void;
@@ -22,9 +22,11 @@ export const WithCode = ({onClose}: Props) => {
               <Icon name="Cross" size={18}/>
               </button>
           </div>
-          <div className={styles.forms}>
+          <form className={styles.forms}>
+            <label>
               <input type="tel" placeholder="Телефон"></input>
-          </div>
+            </label>
+          </form>
           <div className={styles.enters}>
             <div onClick={() => dispatch(setCurrentModal("EnterCode"))} 
                 className={styles.big}>Получить код</div>

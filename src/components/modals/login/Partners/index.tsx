@@ -3,7 +3,7 @@ import React from 'react'
 import { Icon } from '../../../Icon'
 
 import styles from '../Login.module.sass'
-import { setCurrentModal } from '../../../../redux/slices/slice'
+import { setCurrentModal } from '../../../../redux/modals/slice'
 import { useDispatch } from 'react-redux'
 
 interface Props {
@@ -22,10 +22,14 @@ export const Partners = ({onClose}: Props) => {
               <Icon name="Cross" size={18}/>
               </button>
           </div>
-          <div className={styles.forms}>
+          <form className={styles.forms}>
+            <label>
               <input type="tel" placeholder="Телефон"></input>
+            </label>
+            <label>
               <input type="password" placeholder='Пароль'></input>
-          </div>
+            </label>
+          </form>
           <div className={styles.enters}>
             <div className={styles.big}>Войти</div>
             <div className={styles.smalls}>

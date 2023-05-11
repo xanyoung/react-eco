@@ -11,6 +11,8 @@
     "@types/node": "^16.18.12",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "formik": "^2.2.9",
+    "openapi-typescript-codegen": "^0.24.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
@@ -27,7 +29,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "svg": "node ./src/generate-svg.js"
+    "svg": "node ./src/generate-svg.js",
+    "generate-models": "openapi -i https://ecoapp.cloud.technokratos.com/v3/api-docs -o ./src/models/generated --exportCore false  --exportServices false"
   },
   "eslintConfig": {
     "extends": [
