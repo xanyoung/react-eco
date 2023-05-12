@@ -20,7 +20,7 @@ export const Registation = ({onClose}: Props) => {
   const dispatch = useDispatch()
 
   const handleRegister = (values: RegisterResponse) => {
-    register(values).then(resp => dispatch(setUsername(data?.username as string)))
+    register(values).then(() => dispatch(setUsername(data?.username as string)))
   }
 
   return (
@@ -39,6 +39,27 @@ export const Registation = ({onClose}: Props) => {
               phone_number: '',
               password: ''
             }}
+            validate={values => {
+              const errors: Partial<typeof values> = {};
+              if (!values.username) {
+                errors.username = 'Поле "Имя" обязательно';
+              }
+
+              if (!values.phone_number) {
+                errors.phone_number = 'Поле "Телефон" обязательно';
+              } else if (!/^\+7\d{10}$/.test(values.phone_number)) {
+                errors.phone_number = 'Неверный формат телефона';
+              }
+
+              if (!values.password) {
+                errors.password = 'Поле "Пароль" обязательно';
+              } else if (values.password.length < 6) {
+                errors.password = 'Пароль должен содержать не менее 6 символов';
+              } 
+
+              return errors;
+              } 
+            }
   
             onSubmit={handleRegister}
           >
@@ -47,6 +68,8 @@ export const Registation = ({onClose}: Props) => {
 					  handleChange,
 					  handleBlur,
 					  handleSubmit,
+            errors,
+            touched
 				  }) => (
           <form onSubmit={handleSubmit} className={styles.forms}>
             <label>
@@ -57,6 +80,9 @@ export const Registation = ({onClose}: Props) => {
 							value={values.username}
               type="text" 
               placeholder="Имя"></input>
+              <span className={styles.validate}> 
+                {errors.username && touched.username && errors.username}
+              </span>
             </label>
             <label>
               <input 
@@ -66,6 +92,9 @@ export const Registation = ({onClose}: Props) => {
 							value={values.phone_number}
               type="tel" 
               placeholder="Телефон"></input>
+              <span className={styles.validate}> 
+                {errors.phone_number && touched.phone_number && errors.phone_number}
+              </span>
             </label>  
             <label> 
               <input 
@@ -75,7 +104,10 @@ export const Registation = ({onClose}: Props) => {
 								value={values.password}
                 type="password" 
                 placeholder='Пароль'></input>
-            </label>
+                <span className={styles.validate}> 
+                  {errors.password && touched.password && errors.password}
+                </span>            
+                </label>
           <div className={styles.enters}>
           <button type='submit' className={styles.big}>Зарегистрироваться</button>
             <div className={styles.smalls}>
