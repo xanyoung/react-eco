@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Icon } from '../../../Icon'
 
-import styles from '../Login.module.sass'
+import styles from '../ModalRoot.module.sass'
 import { useDispatch } from 'react-redux'
 import { setCurrentModal } from '../../../../redux/modals/slice'
 
@@ -25,7 +25,7 @@ export const EnterCode = ({onClose}: Props) => {
           <form className={styles.forms}>
               <span>Введите код отправленный вам на телефон <p>+7 (917) 888 88 88</p></span>
               <label>
-                <input type="text" placeholder="Код"></input>
+                <input type="text" placeholder="Код"/>
               </label>
           </form>
           <div className={styles.enters}>

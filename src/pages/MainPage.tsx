@@ -1,11 +1,11 @@
 import React from 'react'
 
-import { Info } from '../Info'
+import { MainCarousel } from '../components/MainCarousel'
 
 export const MainPage = () => {
   return (
     <>
-      <Info />
+      <MainCarousel />
     </>
   )
 }

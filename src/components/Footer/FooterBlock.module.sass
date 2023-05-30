@@ -1,16 +1,13 @@
-$navy: #000b26a3
-$navy-32: rgba($navy, 0.32)
-$navy-64: rgba($navy, 0.64)
-$black-12: rgba(black, 0.12)
+@use "src/styles/variables"
 
 .container
-    box-shadow: 0px -0.5px 0px 0px $black-12
+    box-shadow: 0px -0.5px 0px 0px variables.$black-12
     height: 64px
     display: flex
     flex-direction: row
     align-items: center
     gap: 31px
-    color: $navy-64
+    color: variables.$navy-64
     font-size: 16px
     line-height: 22px
 
@@ -24,4 +21,4 @@ $black-12: rgba(black, 0.12)
         gap: 10px
 
 .mail, .call
-    color: $navy-32
+    color: variables.$navy-32

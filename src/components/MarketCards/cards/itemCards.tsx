@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { GetPromo } from './getPromo'
-import { CardTemplate } from './cardTemplate'
-import { cardProps } from './cardTemplate'
+import { GetPromo } from './GetPromo'
+import { CardTemplate } from './CardTemplate'
+import { cardProps } from './CardTemplate'
 
-import styles from './itemCards.module.sass'
+import styles from './ItemCards.module.sass'
 
 import NikeAirMax21 from '../../../assets/products/NikeAirMax21.svg'
 import NikeAirMax90 from '../../../assets/products/NikeAirMax90.svg'

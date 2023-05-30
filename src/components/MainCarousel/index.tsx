@@ -1,7 +1,7 @@
 import React from 'react'
 import { Carousel } from 'react-responsive-carousel';
 
-import styles from './Info.module.sass'
+import styles from './MainCarousel.module.sass'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 import { SmallCard } from './SmallCard'
@@ -34,7 +34,7 @@ const BigInfo: Array<infoProps> = [
     {bigText: "Что с масками?", smallText: "Медицинские маски не обязательно должны становиться отходами. Их тоже можно сдать на переработку.", image: Masks, imageAlt: "Masks", color: '#BFF0DE', textButton: 'Пункты сбора масок'}
 ]
 
-export const Info = () => {
+export const MainCarousel = () => {
     return (
         <div className={styles.container}>
             <div className={styles.bigCards}>

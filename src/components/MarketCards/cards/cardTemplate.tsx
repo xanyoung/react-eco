@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './cardTemplate.module.sass'
+import styles from './CardTemplate.module.sass'
 
 import Coin from '../../../assets/items/CurrencyBig.svg'
 

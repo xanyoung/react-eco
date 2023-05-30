@@ -1,17 +1,11 @@
-$deepnavy: rgb(0, 11, 38)
-$deepnavy-56: rgba($deepnavy, 0.56)
-$deepnavy-72: rgba($deepnavy, 0.72)
-$lightnavy: rgb(62, 80, 114)
-$lightnavy-8: rgba($lightnavy, 0.08)
-$blue: rgb(18, 34, 88)
-$blue-12: rgba($blue, 0.12)
+@use "src/styles/variables"
 
 .card
     position: relative
     width: 588px
     height: 300px
     border-radius: 16px
-    border: 1px solid $blue-12
+    border: 1px solid variables.$blue-12
     display: flex
     flex-direction: row
 
@@ -21,14 +15,14 @@ $blue-12: rgba($blue, 0.12)
         margin-left: 40px
 
         .bigText
-            color: $deepnavy
+            color: variables.$navy
             font-weight: 600
             font-size: 32px
             line-height: 40px
 
         .smallText
             font-size: 16px
-            color: $deepnavy-56
+            color: variables.$navy-56
             line-height: 24px
             margin-top: 14px
 
@@ -38,7 +32,7 @@ $blue-12: rgba($blue, 0.12)
             height: 48px
             width: 48px
             border-radius: 8px
-            background: $lightnavy-8
+            background: variables.$lightnavy-8
             display: flex
             align-items: center
             justify-content: center
@@ -49,4 +43,4 @@ $blue-12: rgba($blue, 0.12)
         bottom: 0
 
 .Arrow
-    color: $deepnavy-72
+    color: variables.$navy-72

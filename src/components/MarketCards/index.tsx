@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { FilterButton } from './filterButton/filterButton'
+import { FilterButton } from './FilterButton/FilterButton'
 import { Sidebar } from './longFilter/Sidebar'
-import { ItemCards } from './cards/itemCards'
+import { ItemCards } from './cards/ItemCards'
 
 import styles from './MainBlock.module.sass'
 

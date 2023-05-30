@@ -1,15 +1,7 @@
-$lightgreen: #07C88E
-$darkred: #353535
-$darkred-60: rgba($darkred, 0.6)
-$lightblue: #3e5072
-$lightblue-8: rgba($lightblue, 0.08)
-$deepnavy: #000b26
-$deepnavy-80: rgba($deepnavy, 0.8)
-$deepnavy-16: rgba($deepnavy, 0.16)
-$deepnavy-72: rgba($deepnavy, 0.72)
+@use 'src/styles/variables'
 
 .overlay
-    background-color: $darkred-60
+    background-color: variables.$gray-60
     position: fixed
     display: flex
     top: 0
@@ -66,13 +58,13 @@ $deepnavy-72: rgba($deepnavy, 0.72)
 
                 p
                     font-size: 14px
-                    color: $lightgreen
+                    color: variables.$green
 
             input
                 width: 352px
                 height: 60px
                 background: #fff
-                border: 1px solid $deepnavy-16
+                border: 1px solid variables.$navy-16
                 border-radius: 8px
                 font-family: Inter
                 font-size: 14px
@@ -90,7 +82,7 @@ $deepnavy-72: rgba($deepnavy, 0.72)
                 align-items: center
                 gap: 10px
                 height: 56px
-                background: $lightgreen
+                background: variables.$green
                 color: white
                 border-radius: 8px
                 font-size: 16px
@@ -102,13 +94,13 @@ $deepnavy-72: rgba($deepnavy, 0.72)
                 justify-content: space-between
 
             .buttons
-                color: $lightgreen
+                color: variables.$green
                 font-size: 16px
                 cursor: pointer
 
         .partners
-            background: $lightblue-8
-            color: $deepnavy-80
+            background: variables.$lightnavy-8
+            color: variables.$navy-80
             border-radius: 8px
             display: flex
             flex-direction: row
@@ -120,4 +112,4 @@ $deepnavy-72: rgba($deepnavy, 0.72)
             cursor: pointer
 
 .Cross
-    color: $deepnavy-72
+    color: variables.$navy-72

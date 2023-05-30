@@ -1,16 +1,10 @@
-$deepnavy: #000b26
-$deepnavy-40: rgba($deepnavy, 0.4)
-
-@mixin flex
-    display: flex
-    flex-direction: row
-    align-items: center
+@use 'src/styles/variables'
 
 .container
-    @include flex
+    @include variables.flex
 
     label
-        @include flex
+        @include variables.flex
 
     .caption
         font-style: normal
@@ -19,7 +13,7 @@ $deepnavy-40: rgba($deepnavy, 0.4)
 
 .checkbox
     background: white
-    border: 1.5px solid $deepnavy-40
+    border: 1.5px solid variables.$navy-40
     border-radius: 4px
     margin-right: 9px
     height: 18px
@@ -27,7 +21,7 @@ $deepnavy-40: rgba($deepnavy, 0.4)
 
     &Active
         padding: 4px
-        background: #07C88E
+        background: variables.$green
         border: none
 
 input[type="checkbox"]

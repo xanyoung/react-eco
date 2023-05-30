@@ -1,5 +1,6 @@
 import React from 'react'
 import { Formik } from 'formik'
+import * as yup from 'yup'
 
 import { useDispatch } from 'react-redux'
 
@@ -8,7 +9,7 @@ import { setCurrentModal } from '../../../../redux/modals/slice'
 import { useRegistrationMutation } from '../../../../redux/auth'
 import { RegisterBody, RegisterResponse } from '../../../../models/auth.model'
 
-import styles from '../Login.module.sass'
+import styles from '../ModalRoot.module.sass'
 import { setUsername } from '../../../../redux/user/slice'
 
 export interface Props {
@@ -16,12 +17,27 @@ export interface Props {
 }
 
 export const Registation = ({onClose}: Props) => {
+  // eslint-disable-next-line 
   const [register, {data, isLoading}] = useRegistrationMutation();
   const dispatch = useDispatch()
 
   const handleRegister = (values: RegisterResponse) => {
     register(values).then(() => dispatch(setUsername(data?.username as string)))
   }
+
+  const validationSchema = yup.object({
+    username: yup
+              .string()
+              .required('Имя обязательно'),
+
+    phone_number: yup
+                  .string()
+                  .required('Номер телефона обязателен')
+                  .matches(/^\d{11}$/, 'Неверный формат телефона'),
+    password: yup
+              .string()
+              .required('Пароль обязателен')
+  })  
 
   return (
     <>
@@ -39,28 +55,7 @@ export const Registation = ({onClose}: Props) => {
               phone_number: '',
               password: ''
             }}
-            validate={values => {
-              const errors: Partial<typeof values> = {};
-              if (!values.username) {
-                errors.username = 'Поле "Имя" обязательно';
-              }
-
-              if (!values.phone_number) {
-                errors.phone_number = 'Поле "Телефон" обязательно';
-              } else if (!/^\+7\d{10}$/.test(values.phone_number)) {
-                errors.phone_number = 'Неверный формат телефона';
-              }
-
-              if (!values.password) {
-                errors.password = 'Поле "Пароль" обязательно';
-              } else if (values.password.length < 6) {
-                errors.password = 'Пароль должен содержать не менее 6 символов';
-              } 
-
-              return errors;
-              } 
-            }
-  
+            validationSchema={validationSchema}
             onSubmit={handleRegister}
           >
           {({
@@ -79,7 +74,7 @@ export const Registation = ({onClose}: Props) => {
               name='username'
 							value={values.username}
               type="text" 
-              placeholder="Имя"></input>
+              placeholder="Имя"/>
               <span className={styles.validate}> 
                 {errors.username && touched.username && errors.username}
               </span>
@@ -91,7 +86,7 @@ export const Registation = ({onClose}: Props) => {
               name='phone_number'
 							value={values.phone_number}
               type="tel" 
-              placeholder="Телефон"></input>
+              placeholder="Телефон"/>
               <span className={styles.validate}> 
                 {errors.phone_number && touched.phone_number && errors.phone_number}
               </span>
@@ -103,7 +98,7 @@ export const Registation = ({onClose}: Props) => {
                 name='password'
 								value={values.password}
                 type="password" 
-                placeholder='Пароль'></input>
+                placeholder='Пароль'/>
                 <span className={styles.validate}> 
                   {errors.password && touched.password && errors.password}
                 </span>            

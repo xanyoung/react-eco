@@ -1,6 +1,4 @@
-$deepnavy: #000b26
-$darkred: #333333
-$darkred-12: rgba($darkred, 0.12)
+@use 'src/styles/variables'
 
 .photo
     position: relative
@@ -8,7 +6,7 @@ $darkred-12: rgba($darkred, 0.12)
     .brand
         font-size: 14px
         position: absolute
-        box-shadow: 0px 4px 24px 0px $darkred-12
+        box-shadow: 0px 4px 24px 0px variables.$darkred-12
         background: white
         left: 24px
         top: 24px
@@ -24,7 +22,7 @@ $darkred-12: rgba($darkred, 0.12)
     font-size: 16px
     font-weight: 500
     line-height: 20px
-    color: $deepnavy
+    color: variables.$navy
     margin-top: 10px
 
     .big

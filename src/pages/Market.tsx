@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { MarketCards } from '../MarketCards'
+import { MarketCards } from '../components/MarketCards'
 
 export const Market = () => {    
   return (

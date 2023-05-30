@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './getPromo.module.sass'
+import styles from './GetPromo.module.sass'
 
 import coin from '../../../assets/items/coin.svg'
 

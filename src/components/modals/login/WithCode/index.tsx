@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Icon } from '../../../Icon'
 
-import styles from '../Login.module.sass'
+import styles from '../ModalRoot.module.sass'
 import { useDispatch } from 'react-redux'
 import { setCurrentModal } from '../../../../redux/modals/slice'
 
@@ -24,7 +24,7 @@ export const WithCode = ({onClose}: Props) => {
           </div>
           <form className={styles.forms}>
             <label>
-              <input type="tel" placeholder="Телефон"></input>
+              <input type="tel" placeholder="Телефон"/>
             </label>
           </form>
           <div className={styles.enters}>

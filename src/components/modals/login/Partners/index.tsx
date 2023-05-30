@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Icon } from '../../../Icon'
 
-import styles from '../Login.module.sass'
+import styles from '../ModalRoot.module.sass'
 import { setCurrentModal } from '../../../../redux/modals/slice'
 import { useDispatch } from 'react-redux'
 
@@ -24,10 +24,10 @@ export const Partners = ({onClose}: Props) => {
           </div>
           <form className={styles.forms}>
             <label>
-              <input type="tel" placeholder="Телефон"></input>
+              <input type="tel" placeholder="Телефон"/>
             </label>
             <label>
-              <input type="password" placeholder='Пароль'></input>
+              <input type="password" placeholder='Пароль'/>
             </label>
           </form>
           <div className={styles.enters}>

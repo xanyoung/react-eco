@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { Header } from './components/Header';
-import { Market } from './components/Pages/Market';
-import { NotFound } from './components/Pages/NotFound';
-import { MainPage } from './components/Pages/MainPage';
+import { Market } from './pages/Market';
+import { NotFound } from './pages/NotFound';
+import { MainPage } from './pages/MainPage';
 import { Footer } from './components/Footer';
-import { Login } from './components/modals/login';
+import { ModalRoot } from './components/modals/login';
 
 import './App.sass';
 import { Route, Routes } from 'react-router-dom';
@@ -22,8 +22,7 @@ export const App = () => {
         <Route path="/" element={<MainPage />}/>
         <Route path="/market" element={<Market />}/>
         <Route path="*" element={<NotFound />}/>   
-      </Routes>
-      <Login />      
+      </Routes>      
       </div>
       <Footer />
     </>

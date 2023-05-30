@@ -7,10 +7,14 @@ import styles from './Arrows.module.sass'
 
 import { Icon } from '../../Icon'
 
-export const Arrows = (props: {type: "right" | "left"}) => {
+interface Props {
+  type: "right" | "left"
+}
+
+export const Arrows = ({type}: Props) => {
   return (
     <div className={styles.container}>
-      <Icon name={props.type === "left" ? 'leftArrow' : 'rightArrow'} width={8} height={14}/>
+      <Icon name={type === "left" ? 'leftArrow' : 'rightArrow'} width={8} height={14}/>
     </div>
   )
 }

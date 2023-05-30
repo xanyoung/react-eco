@@ -1,6 +1,4 @@
-$darkblue: rgb(0, 11, 38)
-$darkblue-80: rgba($darkblue, 0.8)
-$green: rgb(7, 200, 142)
+@use "src/styles/variables"
 
 .banner
     position: relative
@@ -20,7 +18,7 @@ $green: rgb(7, 200, 142)
             font-weight: 700px
             font-size: 48px
             line-height: 56px
-            color: $darkblue
+            color: variables.$navy
 
         .smallText
             margin-top: 16px
@@ -33,7 +31,7 @@ $green: rgb(7, 200, 142)
             height: 48px
             border-radius: 8px
             border: none
-            background: $green
+            background: variables.$green
             font-size: 16px
             color: white
 

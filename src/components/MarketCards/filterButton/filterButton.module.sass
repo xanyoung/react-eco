@@ -1,15 +1,12 @@
-$deepnavy: #000b26
-$deepnavy-80: rgba($deepnavy, 0.8)
-$lightblue: #3e5072
-$lightblue-8: rgba($lightblue, 0.08)
+@use 'src/styles/variables'
 
 .filterbutton
     font-family: Inter
     font-size: 14px
     font-weight: 400
     line-height: 20px
-    color: $deepnavy-80
-    background: $lightblue-8
+    color: variables.$navy-80
+    background: variables.$lightnavy-8
     border-radius: 61px
     padding: 10px 20px
     display: flex
@@ -17,5 +14,5 @@ $lightblue-8: rgba($lightblue, 0.08)
     border: none
 
 .filterbutton:focus
-    background: $deepnavy-80
+    background: variables.$navy-80
     color: white

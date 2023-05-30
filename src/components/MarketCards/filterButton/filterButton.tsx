@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styles from './filterButton.module.sass'
+import styles from './FilterButton.module.sass'
 
 interface Props {
     children: React.ReactNode
