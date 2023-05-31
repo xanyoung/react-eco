@@ -14,15 +14,15 @@ import { WithCode } from './WithCode'
 
 
 export const ModalRoot = () => {
-  // const modalEnabled = useSelector((state: RootState) => state.modals.isVisible)
-  // const currentModel = useSelector((state: RootState) => state.modals.currentModal)
-  // const overlayRef = React.useRef<HTMLDivElement>(null)
+  const modalEnabled = useSelector((state: RootState) => state.modals.isVisible)
+  const currentModel = useSelector((state: RootState) => state.modals.currentModal)
+  const overlayRef = React.useRef<HTMLDivElement>(null)
 
   const dispatch = useDispatch()
 
   const renderModal = (modal?: string) => {
     switch(modal) {
-      case "Auth":
+      case "Auth": 
         return <Auth onClose={() => dispatch(setIsVisible(false))}/>
       case "EnterCode":
         return <EnterCode onClose={() => dispatch(setIsVisible(false))}/>
@@ -35,17 +35,17 @@ export const ModalRoot = () => {
       }
   }
 
-  // return (
-  //   <>    
-  //   {modalEnabled && 
-  //   <Portal>
-  //   <div className={styles.overlay} ref={overlayRef}>
-  //     <div className={styles.window}>
-  //       {renderModal(currentModel)}
-  //     </div>
-  //   </div>
-  //   </Portal>
-  //   }
-  //   </>
-  // )
+  return (
+    <>    
+    {modalEnabled && 
+    <Portal>
+    <div className={styles.overlay} ref={overlayRef}>
+      <div className={styles.window}>
+        {renderModal(currentModel)}
+      </div>
+    </div>
+    </Portal>
+    }
+    </>
+  )
 }

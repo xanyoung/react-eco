@@ -6,47 +6,45 @@ import { useDispatch } from 'react-redux'
 import { Icon } from '../../../Icon'
 
 import styles from '../ModalRoot.module.sass'
-import { turnOffLogin } from '../../../../redux/modals/LoginSlice'
-import { turnOnWithCode } from '../../../../redux/modals/WithCodeSlice'
-import { turnOnRegistration } from '../../../../redux/modals/RegistrationSlice'
-import { turnOnPartners } from '../../../../redux/modals/PartnersSlice'
+
+import { setCurrentModal, setIsVisible } from '../../../../redux/modals/slice'
+import { useAuthenticationMutation, useLazyUserInfoQuery } from '../../../../redux/auth'
+import { AuthenticationResponse, AuthenticationRequest } from '../../../../models/generated'
+import { setUsername } from '../../../../redux/user/slice'
+import { Formik } from 'formik'
 
 export interface Props {
   onClose: () => void;
 }
 
 export const Auth = ({onClose}: Props) => {
+  const [authentication, {data, isLoading}] = useAuthenticationMutation();
+  const [userInfo] = useLazyUserInfoQuery()
   const dispatch = useDispatch()
-  const overlayRef = React.useRef<HTMLDivElement>(null)
+
+  const handleAuth = (values: AuthenticationRequest) => {
+    authentication(values)
+                          .then((res) => { if ('data' in res) {dispatch(setIsVisible(false))
+                                          localStorage.setItem('token', res.data.token as string)}})
+    .then(() => {
+					userInfo(null)
+						.then((res) => dispatch(setUsername(res.data?.username as string)))
+				})
+  }
 
   const validationSchema = yup.object({
-    phone_number: yup
-                  .string()
-                  .required('Номер телефона обязателен')
-                  .matches(/^\d{11}$/, 'Неверный формат телефона'),
+    login: yup
+              .string()
+              .required('Телефон обязателен')
+              .matches(/^\d{11}$/, 'Неверный формат телефона')
+              ,
     password: yup
               .string()
               .required('Пароль обязателен')
   })
-
-  const openEnterCode = () => {
-    dispatch(turnOffLogin())
-    dispatch(turnOnWithCode())
-  }
-
-  const openRegistration = () => {
-    dispatch(turnOffLogin())
-    dispatch(turnOnRegistration())
-  }
-
-  const openPartners = () => {
-    dispatch(turnOffLogin())
-    dispatch(turnOnPartners())
-  }
-
+  
   return (
-    <div className={styles.overlay} ref={overlayRef}>
-      <div className={styles.window}>
+    <>
       <div className={styles.container}>
         <div className={styles.head}>
           <h1>Вход</h1>
@@ -54,25 +52,63 @@ export const Auth = ({onClose}: Props) => {
               <Icon name="Cross" size={18}/>
             </button>
         </div>
-        <form className={styles.forms}>
-          <label>
-            <input type="tel" placeholder="Телефон"/>
-          </label>
-          <label>
-            <input type="password" placeholder='Пароль'/>
-          </label>
-        </form>
-        <div className={styles.enters}>
-          <div className={styles.big}>Войти</div>
-          <div className={styles.smalls}>
-            <button className={styles.buttons} onClick={() => openEnterCode()}>Войти с помощью смс</button>
-            <button className={styles.buttons} onClick={() => openRegistration()}>Регистрация</button>
+        <Formik
+            <AuthenticationRequest>
+            initialValues={{
+              login: '',
+              password: ''
+            }}
+            validationSchema={validationSchema}
+            onSubmit={handleAuth}
+          >
+          {({
+					  values,
+					  handleChange,
+					  handleBlur,
+					  handleSubmit,
+            errors,
+            touched
+				  }) => (
+          <form onSubmit={handleSubmit} className={styles.forms}>
+            <label>
+              <input 
+              onChange={handleChange}
+							onBlur={handleBlur}
+              name='login'
+							value={values.login}
+              type="text" 
+              placeholder="Телефон"/>
+              <span className={styles.validate}> 
+                {errors.login && touched.login && errors.login}
+              </span>
+            </label>  
+            <label> 
+              <input 
+                onChange={handleChange}
+								onBlur={handleBlur}
+                name='password'
+								value={values.password}
+                type="password" 
+                placeholder='Пароль'/>
+                <span className={styles.validate}> 
+                  {errors.password && touched.password && errors.password}
+                </span>            
+                </label>
+          <div className={styles.enters}>
+          <button type='submit' className={styles.big}>Войти</button>
+            <div className={styles.smalls}>
+              <div onClick={() => dispatch(setCurrentModal("WithCode"))} 
+              className={styles.buttons}>Войти с помощью смс</div>
+              <div onClick={() => dispatch(setCurrentModal("Registration"))} 
+              className={styles.buttons}>Регистрация</div>
+            </div>
           </div>
-        </div>
-        <button onClick={() => openPartners()} 
-            className={styles.partners}>Вход для партнёров</button>
+          <div onClick={() => dispatch(setCurrentModal("Partners"))} 
+            className={styles.partners}>Вход для партнёров</div>
+          </form>
+          )}
+          </Formik>
       </div>
-      </div>
-      </div>
+    </>
   )
 }

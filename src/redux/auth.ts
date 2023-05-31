@@ -1,5 +1,6 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react'
-import {RegisterBody, RegisterResponse} from '../models/auth.model'
+import {RegisterBody, RegisterResponse} from '../models/registration.model'
+import { AuthenticationResponse, AuthenticationRequest, User } from '../models/generated'
 
 
 export const AuthApi = createApi({
@@ -13,8 +14,22 @@ export const AuthApi = createApi({
 				body,
 				method: 'POST'
 			})
+		}),
+		authentication: builder.mutation<AuthenticationResponse, AuthenticationRequest>({
+			query: (body) => ({
+				url: 'login',
+				body,
+				method: 'POST'
+			})
+		}),
+		userInfo: builder.query<User, null>({
+			query: () => ({
+				url: 'profile',
+				method: 'GET',
+				headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`}
+			})
 		})
 	})
 })
 
-export const { useRegistrationMutation } = AuthApi
+export const { useRegistrationMutation, useAuthenticationMutation, useLazyUserInfoQuery, useUserInfoQuery } = AuthApi

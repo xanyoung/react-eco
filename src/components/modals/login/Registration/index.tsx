@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'
 import { Icon } from '../../../Icon'
 import { setCurrentModal } from '../../../../redux/modals/slice'
 import { useRegistrationMutation } from '../../../../redux/auth'
-import { RegisterBody, RegisterResponse } from '../../../../models/auth.model'
+import { RegisterBody, RegisterResponse } from '../../../../models/registration.model'
 
 import styles from '../ModalRoot.module.sass'
 import { setUsername } from '../../../../redux/user/slice'
@@ -21,8 +21,9 @@ export const Registation = ({onClose}: Props) => {
   const [register, {data, isLoading}] = useRegistrationMutation();
   const dispatch = useDispatch()
 
-  const handleRegister = (values: RegisterResponse) => {
-    register(values).then(() => dispatch(setUsername(data?.username as string)))
+  const handleRegister = (values: RegisterBody) => {
+    register(values).then(() => dispatch(setCurrentModal("Auth")))
+
   }
 
   const validationSchema = yup.object({

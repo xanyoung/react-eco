@@ -9,7 +9,7 @@ import styles from './MainBlock.module.sass'
 export const MarketCards = () => {
   return (
     <main>
-      <div className={styles.headpart}>
+      <div className={styles.headPart}>
         <p>ЭкоМаркет</p>
         <div className={styles.filters}>
           <FilterButton children="По популярности"/>
@@ -17,7 +17,7 @@ export const MarketCards = () => {
           <FilterButton children="По новизне"/>
         </div>
       </div>
-      <div className={styles.mainpart}>
+      <div className={styles.mainPart}>
         <Sidebar />
         <ItemCards />
       </div>

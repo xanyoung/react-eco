@@ -11,7 +11,6 @@ import Photo from '../../assets/items/Photo.svg'
 import styles from './HeaderBlock.module.sass'
 import { setCurrentModal, setIsVisible } from '../../redux/modals/slice'
 import { RootState } from '../../redux/store'
-import { turnOffLogin } from '../../redux/modals/LoginSlice'
 
 interface HeaderProps {
   setVisible: (value: boolean) => void;
@@ -20,6 +19,7 @@ interface HeaderProps {
 export const Header = ({setVisible}: HeaderProps) => {
   const dispatch = useDispatch()
   const username = useSelector((state: RootState) => state.user.username)
+  console.log(username)
 
   return (
     <header className={styles.header}>
@@ -51,7 +51,7 @@ export const Header = ({setVisible}: HeaderProps) => {
         <Link to='/' 
         onClick={() => {
           dispatch(setIsVisible(true))
-          dispatch(turnOffLogin())
+          dispatch(setCurrentModal("Auth"))
         }}
         className={styles.infoProfile}>
           <img src={ Photo } alt="Your avatar" />{username ?? 'Войти'}
