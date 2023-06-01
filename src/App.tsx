@@ -1,23 +1,24 @@
 import React from 'react';
 
-import { Header } from './components/Header';
-import { Market } from './pages/Market';
-import { NotFound } from './pages/NotFound';
-import { MainPage } from './pages/MainPage';
-import { Footer } from './components/Footer';
-import { ModalRoot } from './components/modals/login';
+import { Header } from 'components/Header';
+import { Market } from 'pages/MarketPage';
+import { NotFound } from 'pages/NotFoundPage'; 
+import { MainPage } from 'pages/MainPage';
+import { Footer } from 'components/Footer';
+import { ModalRoot } from 'components/modals/login';
 
 import './App.sass';
 import { Route, Routes } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
-import { useLazyUserInfoQuery } from './redux/auth';
-import { setUsername } from './redux/user/slice'
+import { useLazyUserInfoQuery } from 'redux/auth';
+import { setUsername } from 'redux/user/slice'
 
 export const App = () => {
   // eslint-disable-next-line
+  const [visible, setVisible] = React.useState(false)
   const [userInfo] = useLazyUserInfoQuery()
   const dispatch = useDispatch()
-  const [visible, setVisible] = React.useState(false)
+  
 
   React.useEffect(() => {
     if (localStorage.getItem('token')) {

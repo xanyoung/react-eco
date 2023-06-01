@@ -1,16 +1,14 @@
-import React from 'react'
 import { Formik } from 'formik'
 import * as yup from 'yup'
 
 import { useDispatch } from 'react-redux'
 
-import { Icon } from '../../../Icon'
-import { setCurrentModal } from '../../../../redux/modals/slice'
-import { useRegistrationMutation } from '../../../../redux/auth'
-import { RegisterBody, RegisterResponse } from '../../../../models/registration.model'
+import { Icon } from 'components/Icon'
+import { setCurrentModal } from 'redux/modals/slice'
+import { useRegistrationMutation } from 'redux/auth'
+import { RegisterBody } from 'models/registration.model'
 
 import styles from '../ModalRoot.module.sass'
-import { setUsername } from '../../../../redux/user/slice'
 
 export interface Props {
   onClose: () => void;

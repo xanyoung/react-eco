@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { MainCarousel } from '../components/MainCarousel'
+import { MainCarousel } from './MainCarousel'
 
 export const MainPage = () => {
   return (

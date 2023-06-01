@@ -2,9 +2,7 @@ import React from 'react'
 
 import styles from './SmallCard.module.sass'
 
-// import Arrow from '../../../assets/Arrow.svg'
-
-import { Icon } from '../../Icon';
+import { Icon } from 'components/Icon'; 
 
 interface infoProps {
     bigText: string;

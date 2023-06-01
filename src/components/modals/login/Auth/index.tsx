@@ -3,14 +3,14 @@ import * as yup from 'yup'
 
 import { useDispatch } from 'react-redux'
 
-import { Icon } from '../../../Icon'
+import { Icon } from 'components/Icon'
 
 import styles from '../ModalRoot.module.sass'
 
-import { setCurrentModal, setIsVisible } from '../../../../redux/modals/slice'
-import { useAuthenticationMutation, useLazyUserInfoQuery } from '../../../../redux/auth'
-import { AuthenticationResponse, AuthenticationRequest } from '../../../../models/generated'
-import { setUsername } from '../../../../redux/user/slice'
+import { setCurrentModal, setIsVisible } from 'redux/modals/slice'
+import { useAuthenticationMutation, useLazyUserInfoQuery } from 'redux/auth'
+import { AuthenticationRequest } from 'models/generated'
+import { setUsername } from 'redux/user/slice'
 import { Formik } from 'formik'
 
 export interface Props {
@@ -18,7 +18,7 @@ export interface Props {
 }
 
 export const Auth = ({onClose}: Props) => {
-  const [authentication, {data, isLoading}] = useAuthenticationMutation();
+  const [authentication] = useAuthenticationMutation();
   const [userInfo] = useLazyUserInfoQuery()
   const dispatch = useDispatch()
 

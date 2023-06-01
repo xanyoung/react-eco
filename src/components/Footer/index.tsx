@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './FooterBlock.module.sass'
 
-import { Icon } from '../Icon'
+import { Icon } from 'components/Icon'
 
 export const Footer = () => {
   return (

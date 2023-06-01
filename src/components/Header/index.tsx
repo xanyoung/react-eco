@@ -2,15 +2,15 @@ import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { Icon } from '../Icon'
+import { Icon } from 'components/Icon'
 
-import Logo from '../../assets/items/Logo.svg'
-import CurrencyLogo from '../../assets/items/CurrencyBig.svg'
-import Photo from '../../assets/items/Photo.svg'
+import Logo from 'assets/items/Logo.svg'
+import CurrencyLogo from 'assets/items/CurrencyBig.svg'
+import Photo from 'assets/items/Photo.svg'
 
 import styles from './HeaderBlock.module.sass'
-import { setCurrentModal, setIsVisible } from '../../redux/modals/slice'
-import { RootState } from '../../redux/store'
+import { setCurrentModal, setIsVisible } from 'redux/modals/slice'
+import { RootState } from 'redux/store'
 
 interface HeaderProps {
   setVisible: (value: boolean) => void;

@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { Icon } from '../../../Icon'
+import { Icon } from 'components/Icon'
 
 import styles from '../ModalRoot.module.sass'
 import { useDispatch } from 'react-redux'
-import { setCurrentModal } from '../../../../redux/modals/slice'
+import { setCurrentModal } from 'redux/modals/slice'
 
 interface Props {
   onClose: () => void;
